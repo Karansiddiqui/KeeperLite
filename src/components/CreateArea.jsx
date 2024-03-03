@@ -1,58 +1,72 @@
 import React, { useState } from "react";
+import AddIcon from '@mui/icons-material/Add';
+import Fab from '@mui/material/Fab';
+import Zoom from '@mui/material/Zoom';
 
 function CreateArea(props) {
 
-    const [note, setNote] = useState({
-        title: "",
-        content: ""
+  const [isExtend, setExtend] = useState(false);
+
+  const [note, setNote] = useState({
+    title: "",
+    content: "",
+  });
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+
+    setNote((prevNote) => {
+      return {
+        ...prevNote,
+        [name]: value,
+      };
     });
+  }
 
-    function handleChange(event) {
-        const { name, value } = event.target;
+  function submitNote(event) {
+    props.onAdd(note);
+    setNote({
+      title: "",
+      content: "",
+    });
+    event.preventDefault();
+  }
 
-        setNote(prevNote => {
-            return {
-                ...prevNote,
-                [name]: value
-            }
-        })
-    }
+  function expend() {
+    setExtend(true);
+  }
 
-    function submitNote(event) {
-        props.onAdd(note);
+  return (
+    <div>
+      <form className="create-note">
 
-        setNote({
-            title: "",
-            content: ""
-        });
-        event.preventDefault();
-    }
+        {isExtend && <input
+          name="title"
+          onChange={handleChange}
+          value={note.title}
+          placeholder="Title"
+        />}
 
-    return (
-        <div>
-            <form>
-                <input
-                    onChange={handleChange}
-                    value={note.title}
-                    name="title"
-                    placeholder="Title"
-                />
-                <textarea
-                    onChange={handleChange}
-                    value={note.content}
-                    name="content"
-                    placeholder="Take a Note ..."
-                    rows={3}
-                />
-                <button
-                    onClick={submitNote}
-                    type="submit"
-                >
-                    +
-                </button>
-            </form>
-        </div>
-    )
+        <textarea
+          name="content"
+          onClick={expend}
+          onChange={handleChange}
+          value={note.content}
+          placeholder="Take a note..."
+          rows={isExtend ? 3 : 1}
+        />
+
+        {isExtend && <Zoom in="true">
+        {/* button */}
+          <Fab onClick={submitNote}>
+            <AddIcon />
+          </Fab>
+        </Zoom>}
+
+
+      </form>
+    </div>
+  );
 }
 
 export default CreateArea;

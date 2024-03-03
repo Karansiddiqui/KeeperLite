@@ -27,6 +27,8 @@ function App() {
         <div>
             <Header />
             <CreateArea onAdd={addNote}/>
+            
+            <div className="noteContainer">
             {notes.map((noteItem, index) => {
                 return (
                 <Note
@@ -37,6 +39,7 @@ function App() {
                     onDelete= {deleteNote}
                 />)
             })}
+            </div>
             <Footer />
         </div>
     );
