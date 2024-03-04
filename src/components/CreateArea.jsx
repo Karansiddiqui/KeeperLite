@@ -56,7 +56,7 @@ function CreateArea(props) {
           rows={isExtend ? 3 : 1}
         />
 
-        {isExtend && <Zoom in="true">
+        {isExtend && <Zoom in={true}>
         {/* button */}
           <Fab onClick={submitNote}>
             <AddIcon />
