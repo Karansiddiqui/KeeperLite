@@ -20,4 +20,5 @@ This is a simple note-taking web application built using React for the frontend 
 
 ![Screenshot (2)](https://github.com/Karansiddiqui/Climate-Connect/assets/106966063/4a1a8908-046c-44ec-837c-c1d61f88d57b)
 
-![Screenshot (3)](https://github.com/Karansiddiqui/Climate-Connect/assets/106966063/0a159315-cf02-4889-aa9b-2cbb5be636be)
+![Screenshot (4)](https://github.com/Karansiddiqui/Climate-Connect/assets/106966063/60614cf3-e67b-4db5-9eaa-6c06737f995f)
+
