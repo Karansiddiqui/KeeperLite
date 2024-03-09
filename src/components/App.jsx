@@ -6,8 +6,6 @@ import CreateArea from "./CreateArea";
 import axios from "axios";
 
 
-const API_URL = "http://localhost:4000";
-
 function App() {
 
     const [notes, setNotes] = useState([]);
