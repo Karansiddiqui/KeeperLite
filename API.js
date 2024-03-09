@@ -6,7 +6,7 @@ const app = express();
 const port = process.env.port || 4000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json()); // Parse JSON bodies
+app.use(bodyParser.json());
 app.use(cors());
 
 let notes = [
