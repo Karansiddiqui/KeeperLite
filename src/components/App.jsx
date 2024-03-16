@@ -36,7 +36,7 @@ function App() {
 
     const deleteNote = async (id) => {
         try {
-            await axios.delete(`${API_URL}/notes/${id}`);
+            await axios.delete(`/notes/${id}`);
             setNotes((prevNotes) => {
                 return (prevNotes.filter((noteItem, index) => {
                     return index !== id;
