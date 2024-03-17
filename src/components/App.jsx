@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Header from "./Header";
+import SwipeDrawer from "./SwipeDrawer";
 import Footer from "./Footer";
-import Note from "./Note";
-import CreateArea from "./CreateArea";
+import CreateArea from "./notes/CreateArea";
 import axios from "axios";
+import DisplayNotes from "./notes/DisplayNotes";
 
 
-function App() {
+const App =  () => {
 
     const [notes, setNotes] = useState([]);
 
@@ -51,21 +51,14 @@ function App() {
     
     return (
         <div>
-            <Header />
+            <SwipeDrawer />
             <CreateArea onAdd={addNote}/>
-            
-            <div className="noteContainer">
-            {notes.map((noteItem, index) => {
-                return (
-                <Note
-                    key={index}
-                    id={index}
-                    title= {noteItem.title}
-                    content= {noteItem.content}
-                    onDelete= {deleteNote}
-                />)
-            })}
-            </div>
+
+            <DisplayNotes
+             notes={notes}
+             deleteNote={deleteNote}
+            />
+
             <Footer />
         </div>
     );
