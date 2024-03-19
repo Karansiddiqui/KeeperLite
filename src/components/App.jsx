@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import SwipeDrawer from "./SwipeDrawer";
+import DataProvider from "../context/DataProvider";
 import Footer from "./Footer";
 import CreateArea from "./notes/CreateArea";
 import axios from "axios";

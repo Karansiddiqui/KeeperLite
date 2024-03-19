@@ -1,6 +1,5 @@
 import React from "react";
-import Notes from "./Notes"; // Assuming Notes component is imported correctly
-import Box from "@mui/material/Box";
+import Notes from "./Notes";
 const DisplayNotes = ({ notes, deleteNote }) => {
   return (
     <div>
