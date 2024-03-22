@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import AddIcon from "@mui/icons-material/Add";
-import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import Zoom from "@mui/material/Zoom";
+import { v4 as uuid } from "uuid";
 
 const CreateArea = (props) => {
   const [isExtend, setExtend] = useState(false);
 
   const [note, setNote] = useState({
+    id: "",
     title: "",
     content: "",
   });
@@ -36,9 +37,11 @@ const CreateArea = (props) => {
 
     setNote((prevNote) => ({
       ...prevNote,
+      id: uuid(),
       [name]: value,
     }));
 
+    // setNotes(note);
     autoResize();
   }
 
@@ -58,15 +61,17 @@ const CreateArea = (props) => {
   function submitNote() {
     props.onAdd(note);
     setNote({
+      id: "",
       title: "",
       content: "",
     });
+
     setExtend(false);
     textareaRef.current.style.height = "auto";
   }
 
   return (
-    <Box component="main">
+    <div>
       <form className="create-note">
         {isExtend && (
           <input
@@ -101,7 +106,7 @@ const CreateArea = (props) => {
           </Zoom>
         )}
       </form>
-    </Box>
+    </div>
   );
 };
 

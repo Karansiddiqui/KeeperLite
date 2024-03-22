@@ -1,68 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SwipeDrawer from "./SwipeDrawer";
-import DataProvider from "../context/DataProvider";
-import Footer from "./Footer";
-import CreateArea from "./notes/CreateArea";
-import axios from "axios";
-import DisplayNotes from "./notes/DisplayNotes";
+import DisplayNotes from "./notes/Notes";
+import { Box } from "@mui/material";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import DeleteNotes from "./delete/DeleteNotes";
+import Archives from "./archive/Archives";
 
-const App =  () => {
+const App = () => {
+  const [notes, setNotes] = useState([]);
 
-    const [notes, setNotes] = useState([]);
-
-    useEffect(() => {
-        ;(async () => {
-            const response = await axios.get(`/notes`);
-            response.data.map(note => {
-                const { id, title, content } = note;
-                setNotes(prevNotes => [...prevNotes, { id, title, content }]);
-                return null;
-            });
-        })()
-    }, []);
-
-
-    const addNote = async (newNote) => {
-        try {
-            const response = await axios.post(`/notes`, newNote);
-            setNotes(prevNotes => {
-                return [...prevNotes, newNote];
-            });
-            console.log(response);
-        } catch (error) {
-            console.error("Error adding note:", error);
-        }
-    };
-
-    const deleteNote = async (id) => {
-        try {
-            await axios.delete(`/notes/${id}`);
-            setNotes((prevNotes) => {
-                return (prevNotes.filter((noteItem, index) => {
-                    return index !== id;
-                }))
-            })
-        } catch (error) {
-            console.error("Error deleting note:", error);
-        }
-    };
-
-
-    
-    return (
-        <div>
-            <SwipeDrawer />
-            <CreateArea onAdd={addNote}/>
-
-            <DisplayNotes
-             notes={notes}
-             deleteNote={deleteNote}
-            />
-
-            <Footer />
-        </div>
-    );
-}
+  return (
+    <Box style={{ display: "flex", width: "100%" }}>
+      <Router>
+        <SwipeDrawer />
+        <Routes>
+          <Route path="/" element={<DisplayNotes />} />
+          <Route path="/archive" element={<Archives />} />
+          <Route path="/delete" element={<DeleteNotes />} />
+        </Routes>
+      </Router>
+    </Box>
+  );
+};
 
 export default App;

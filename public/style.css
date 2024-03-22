@@ -14,7 +14,7 @@ body {
 form.create-note {
   position: relative;
   width: 600px;
-  margin: 100px auto 20px auto;
+  margin: 27px auto 20px auto;
   background: #fff;
   padding: 5px;
   border-radius: 7px;
@@ -35,7 +35,6 @@ form.create-note textarea::-webkit-scrollbar {
   display: none;
 }
 
-
 form.create-note button {
   position: absolute;
   right: 18px;
@@ -55,18 +54,6 @@ form.create-note button:hover {
   background: #e0a500;
 }
 
-footer {
-  position: fixed;
-  text-align: center;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-}
-
-footer p {
-  color: #ccc;
-}
-
 .note {
   position: relative;
   display: float;
@@ -80,7 +67,7 @@ footer p {
   margin: 16px;
   overflow: auto;
   float: left;
-  left: 100px;
+  /* left: 100px; */
 }
 
 .note::-webkit-scrollbar {
@@ -98,21 +85,41 @@ footer p {
   word-wrap: break-word;
 }
 
-.note button {
+#delete {
   position: absolute;
   bottom: 10px;
-  right: 10px;
-  margin-right: 10px;
   background-color: transparent;
-  color: #f5ba13;
+  color: #969696;
   border: none;
   width: 36px;
   height: 36px;
   cursor: pointer;
   outline: none;
+  right: 10px;
   transition: scale 0.3s;
 }
 
-.note button:hover {
+#archive {
+  position: absolute;
+  bottom: 10px;
+  margin-right: 30px;
+  background-color: transparent;
+  color: #969696;
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  outline: none;
+  right: 10px;
+  transition: scale 0.3s;
+}
+
+#delete:hover {
   scale: 1.5;
+  color: #bd1010ad;
+}
+
+#archive:hover {
+  scale: 1.5;
+  color: #f5ba13;
 }
