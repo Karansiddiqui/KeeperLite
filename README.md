@@ -24,3 +24,4 @@ This is a simple note-taking web application built using React for the frontend 
 
 ![Screenshot 2024-05-31 183533](https://github.com/Karansiddiqui/OpenPost/assets/106966063/70905c09-6c4d-4eb8-b730-60f8b3f39ee7)
 
+![Screenshot (33)](https://github.com/Karansiddiqui/OpenPost/assets/106966063/9b730cda-8347-456c-9d93-207be10f9730)
