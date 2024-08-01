@@ -18,6 +18,6 @@ This is a simple note-taking web application built using React for the frontend 
 
 ![Screenshot (1)](screenshot/home.png)
 
-![Screenshot (2)](screenshot/notes.pn\)
+![Screenshot (2)](screenshot/notes.png)
 
 ![Screenshot (4)](screenshot/drag.png)
